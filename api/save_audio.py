@@ -28,10 +28,13 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 @app.post("/api/save_audio")
 async def save_audio(
     name: str = Form(...),
-    email: str = Form(...),
+    email: str = Form(None),  # Make email optional
     sample1: UploadFile = Form(...),
     sample2: UploadFile = Form(...)
 ):
+    # Handle optional email
+    email = email or "no-email@provided.com"
+    
     # Save to Supabase Storage
     folder = f"{name}_{email}"
     sample1_path = f"{folder}/sample1.webm"

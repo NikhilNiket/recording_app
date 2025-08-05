@@ -3,39 +3,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Audio Recorder App</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 2em; }
-    .hidden { display: none; }
-    .sample { margin-bottom: 2em; }
-    button { margin: 0.5em 0; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Audio Sample Collection</h1>
-  <form id="candidateForm">
-    <label>Name: <input type="text" id="name" required /></label><br/>
-    <label>Email: <input type="email" id="email" required /></label><br/>
-    <div class="sample" id="sample1">
-      <h3>Sample 1</h3>
-      <p>The quick brown fox jumps over the lazy dog.</p>
-      <button type="button" id="start1">Start Recording</button>
-      <button type="button" id="stop1" disabled>Stop Recording</button>
-      <audio id="audio1" controls class="hidden"></audio>
+  <div class="container">
+    <header class="header">
+      <h1>🎤 Audio Recording Application</h1>
+      <p>Please record the following samples to complete your submission</p>
+    </header>
+
+    <form id="candidateForm" class="form">
+      <div class="form-section">
+        <h2>Personal Information</h2>
+        <div class="input-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" required placeholder="Enter your full name" />
+        </div>
+        <div class="input-group">
+          <label for="email">Email Address (Optional)</label>
+          <input type="email" id="email" placeholder="Enter your email address" />
+        </div>
+      </div>
+
+      <div class="sample" id="sample1">
+        <div class="sample-header">
+          <h3>📝 Sample 1</h3>
+          <div class="status" id="status1">Ready to record</div>
+        </div>
+        <div class="sample-text">
+          <p>"The quick brown fox jumps over the lazy dog."</p>
+        </div>
+        <div class="recording-controls">
+          <button type="button" id="start1" class="btn btn-primary">🎙️ Start Recording</button>
+          <button type="button" id="stop1" class="btn btn-danger" disabled>⏹️ Stop Recording</button>
+          <button type="button" id="rerecord1" class="btn btn-secondary hidden" disabled>🔄 Re-record</button>
+        </div>
+        <audio id="audio1" controls class="audio-player hidden"></audio>
+      </div>
+
+      <div class="sample hidden" id="sample2">
+        <div class="sample-header">
+          <h3>📝 Sample 2</h3>
+          <div class="status" id="status2">Ready to record</div>
+        </div>
+        <div class="sample-text">
+          <p>"Talview specializes in revolutionizing organizational interview and exam processes through its GenAI technology, emphasizing integrity, efficiency, and fairness. The platform employs advanced facial and voice recognition to ensure secure and non-intrusive remote interviewing and proctoring experiences. With a commitment to excellence, Talview has earned recognition as the #1 rated proctoring software provider, trusted by over 220,000 experts globally."</p>
+        </div>
+        <div class="recording-controls">
+          <button type="button" id="start2" class="btn btn-primary">🎙️ Start Recording</button>
+          <button type="button" id="stop2" class="btn btn-danger" disabled>⏹️ Stop Recording</button>
+          <button type="button" id="rerecord2" class="btn btn-secondary hidden" disabled>🔄 Re-record</button>
+        </div>
+        <audio id="audio2" controls class="audio-player hidden"></audio>
+      </div>
+
+      <div class="submit-section">
+        <button type="submit" id="submitBtn" class="btn btn-success hidden">📤 Submit Recordings</button>
+      </div>
+    </form>
+
+    <div id="thankyou" class="thankyou hidden">
+      <div class="thankyou-content">
+        <h2>✅ Thank You!</h2>
+        <p>Your audio recordings have been successfully submitted.</p>
+        <p>You may now close this window.</p>
+      </div>
     </div>
-    <div class="sample hidden" id="sample2">
-      <h3>Sample 2</h3>
-      <p>Talview specializes in revolutionizing organizational interview and exam processes through its GenAI technology, emphasizing integrity, efficiency, and fairness. The platform employs advanced facial and voice recognition to ensure secure and non-intrusive remote interviewing and proctoring experiences. With a commitment to excellence, Talview has earned recognition as the #1 rated proctoring software provider, trusted by over 220,000 experts globally.</p>
-      <button type="button" id="start2">Start Recording</button>
-      <button type="button" id="stop2" disabled>Stop Recording</button>
-      <audio id="audio2" controls class="hidden"></audio>
-    </div>
-    <button type="submit" id="submitBtn" class="hidden">Submit</button>
-  </form>
-  <div id="thankyou" class="hidden">
-    <h2>Thank you for your submission!</h2>
-    <p>You may now close this window.</p>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
