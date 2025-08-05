@@ -3,6 +3,9 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client, Client
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 app = FastAPI()
 
@@ -17,6 +20,8 @@ app.add_middleware(
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 BUCKET_NAME = "audio-recordings"
+
+
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
