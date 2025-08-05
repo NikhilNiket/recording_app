@@ -1,0 +1,41 @@
+<!-- /Users/nikhil.niket/Desktop/audio-recorder-app/public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Audio Recorder App</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    .hidden { display: none; }
+    .sample { margin-bottom: 2em; }
+    button { margin: 0.5em 0; }
+  </style>
+</head>
+<body>
+  <h1>Audio Sample Collection</h1>
+  <form id="candidateForm">
+    <label>Name: <input type="text" id="name" required /></label><br/>
+    <label>Email: <input type="email" id="email" required /></label><br/>
+    <div class="sample" id="sample1">
+      <h3>Sample 1</h3>
+      <p>The quick brown fox jumps over the lazy dog.</p>
+      <button type="button" id="start1">Start Recording</button>
+      <button type="button" id="stop1" disabled>Stop Recording</button>
+      <audio id="audio1" controls class="hidden"></audio>
+    </div>
+    <div class="sample hidden" id="sample2">
+      <h3>Sample 2</h3>
+      <p>Talview specializes in revolutionizing organizational interview and exam processes through its GenAI technology, emphasizing integrity, efficiency, and fairness. The platform employs advanced facial and voice recognition to ensure secure and non-intrusive remote interviewing and proctoring experiences. With a commitment to excellence, Talview has earned recognition as the #1 rated proctoring software provider, trusted by over 220,000 experts globally.</p>
+      <button type="button" id="start2">Start Recording</button>
+      <button type="button" id="stop2" disabled>Stop Recording</button>
+      <audio id="audio2" controls class="hidden"></audio>
+    </div>
+    <button type="submit" id="submitBtn" class="hidden">Submit</button>
+  </form>
+  <div id="thankyou" class="hidden">
+    <h2>Thank you for your submission!</h2>
+    <p>You may now close this window.</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
