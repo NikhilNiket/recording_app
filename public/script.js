@@ -51,7 +51,7 @@ document.getElementById('candidateForm').onsubmit = async function(e) {
   formData.append('sample1', sample1Blob, 'sample1.webm');
   formData.append('sample2', sample2Blob, 'sample2.webm');
   document.getElementById('submitBtn').disabled = true;
-  await fetch('http://127.0.0.1:8000/api/save_audio', {
+  await fetch('/api/save_audio', {
     method: 'POST',
     body: formData
   });
